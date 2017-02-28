@@ -5,38 +5,58 @@ $(document).ready(function() {
   $('.navDiv').mouseleave(mouseLeaveButton);
 
   //TODO add your code below to attach event listeners to the buttons
-  $( '#fadeDiv' ).on( 'click', function(){
+  $('#fadeDiv').on( 'click', function(){
     fadeCat();
   });
-  $( '#hideDiv' ).on( 'click', function(){
+  $('#hideDiv').on( 'click', function(){
     hideCat();
+  });
+ $('#animateDiv').on('click', function() {
+   animateCat();
+ });
+
+  $('#resetDiv').on('click', function() {
+    resetCat();
   });
 });
 
 // nav bar function to fade when mouse enters button
 function mouseEnterButton() {
   $(this).fadeTo('fast', 0.5);
-  console.log('enter');
+  //console.log('enter');
 }
 
 // nav bar function to fade when mouse enters button
 function mouseLeaveButton() {
-  console.log('leave');
+  //console.log('leave');
   $(this).fadeTo('fast', 1);
 }
+
+
 
 // hideCat is a function to hide the cat image when that button is clicked
 function hideCat() {
   //TODO your function code here
   // hide catImg
+  $('#catImg').hide();
   // append '<p>hide toggle</p>' to 'clickList'
+  if (!document.getElementById('clickList').innerText.includes("hide")) {
+    $('#clickList').append('<p>hide toggle</p>');
+  } else{
+    $('#clickList').append('');
+  }
 }
-
 // fadeCat is a function to fade cat in or out when that button is clicked
 function fadeCat() {
   //TODO your function code here
   // toggle catImg fade
+  $('#catImg').fadeOut('slow');
   // append '<p>fade toggle</p>' to 'clickList'
+  if (!document.getElementById('clickList').innerText.includes("fade")) {
+    $('#clickList').append('<p>fade toggle</p>');
+  } else{
+    $('#clickList').append('');
+  }
 
 }
 
@@ -44,7 +64,17 @@ function fadeCat() {
 function animateCat() {
   //TODO your function code here
   // animate catImg
-  // append '<p>animate</p>' to 'clickList'
+
+  $('#catImg').animate({left: '160px'});
+  //$("div").animate({left: '250px'});
+    // append '<p>animate</p>' to 'clickList'
+    if (!document.getElementById('clickList').innerText.includes("animate")){
+      $('#clickList').append('<p>animate</p>');
+    }else {
+      $('#clickList').append('');
+    }
+
+
 }
 
 // PRO MODE
@@ -52,5 +82,23 @@ function animateCat() {
 // when that button is clicked.
 function resetCat() {
   // reset catImg
-  // append '<p>reset</p>' to 'clickList'
-}
+    $('#catImg').show();
+    console.log(document.getElementById('clickList').innerText.includes("animate"));
+    // append '<p>reset</p>' to 'clickList'
+    if (!document.getElementById('clickList').innerText.includes("reset")) {
+      $('#clickList').append('<p>reset</p>');
+    } else{
+      //clear all the appendings after reset
+      document.getElementById('clickList').innerHTML = "";
+      if (document.getElementById('clickList').innerText.includes("animate"))
+      {
+        $('#catImg').animate({left: '-50px'});
+      }
+      //$('#catImg').style.position = "static";
+    }
+
+    }
+
+
+
+//}

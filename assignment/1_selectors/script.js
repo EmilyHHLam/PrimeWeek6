@@ -20,16 +20,18 @@ var onReady = function() {
   // 3 - fadout example elements
   // 3 bonus - wait one second and fade back in
   // write your code for question 3 here.
-  $('.example-list').fadeOut('slow');
+  $('.example-list').fadeOut().delay(1000).fadeIn();
+
   // 4 - select all odd list items and change to blue
   // write your code for question 4 here.
  $('li:odd').css({"background-color": "#5DADE2"});
+
   // 5 - select the last list item with a pseudo selector
   // write your code for question 5 here.
  $('.elements li:last').css({'font-size': '20px', 'font-family': 'sans-serif'});
+
   // 6 - select the last list item with traversal
   // write your code for question 6 here.
-    //$( "ul li" ).last().css( "background-color", "red" );
     $('ul li').last().addClass('highlight');
 };
 

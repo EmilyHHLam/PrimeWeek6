@@ -5,6 +5,7 @@ $(document).ready(function() {
   $('.navDiv').mouseleave(mouseLeaveButton);
 
   //TODO add your code below to attach event listeners to the buttons
+  document.getElementById('clickList').innerHTML = "";
   $('#fadeDiv').on( 'click', function(){
     fadeCat();
   });
@@ -32,31 +33,31 @@ function mouseLeaveButton() {
   $(this).fadeTo('fast', 1);
 }
 
-
-
 // hideCat is a function to hide the cat image when that button is clicked
 function hideCat() {
   //TODO your function code here
   // hide catImg
+  $('#catImg').show();
   $('#catImg').hide();
-  // append '<p>hide toggle</p>' to 'clickList'
-  if (!document.getElementById('clickList').innerText.includes("hide")) {
-    $('#clickList').append('<p>hide toggle</p>');
-  } else{
-    $('#clickList').append('');
-  }
+  //cleanup all existing display
+    document.getElementById('clickList').innerHTML = "";
+    // append '<p>hide toggle</p>' to 'clickList'
+    var $addPic = '<img class=\'emojiImg\' src=\'http://pix.iemoji.com/images/emoji/apple/ios-9/256/see-no-evil-monkey.png\'>';
+  $('#clickList').append('<p >' + $addPic + 'HIDE ME!' + $addPic + '</p>');
+
 }
+
 // fadeCat is a function to fade cat in or out when that button is clicked
 function fadeCat() {
   //TODO your function code here
   // toggle catImg fade
+  $('#catImg').show();
   $('#catImg').fadeOut('slow');
+  //cleanup all existing display
+  document.getElementById('clickList').innerHTML = "";
   // append '<p>fade toggle</p>' to 'clickList'
-  if (!document.getElementById('clickList').innerText.includes("fade")) {
-    $('#clickList').append('<p>fade toggle</p>');
-  } else{
-    $('#clickList').append('');
-  }
+  var $addPic = '<img class=\'emojiImg\' src= \'https://image.freepik.com/free-icon/crying-emoticon-rounded-square-face_318-58403.jpg\'> ';
+  $('#clickList').append('<p>' + $addPic + 'FADE ME!' + $addPic + '</p>');
 
 }
 
@@ -64,17 +65,20 @@ function fadeCat() {
 function animateCat() {
   //TODO your function code here
   // animate catImg
-
-  $('#catImg').animate({left: '160px'});
-  //$("div").animate({left: '250px'});
-    // append '<p>animate</p>' to 'clickList'
-    if (!document.getElementById('clickList').innerText.includes("animate")){
-      $('#clickList').append('<p>animate</p>');
-    }else {
-      $('#clickList').append('');
-    }
-
-
+  $('#catImg').show();
+  //cleanup all existing display
+  document.getElementById('clickList').innerHTML = "";
+  var $addPic = '<img class=\'emojiImg\' src= \'http://www.allsmileys.com/files/sweetim-nature/6860.gif\'> ';
+  //intilize the width and height of the cat image
+  var imgWidth= document.getElementById('catImg').clientWidth;
+  var imgHeight = document.getElementById('catImg').clientHeight;
+  //add 10px for each width and height
+  $('#catImg').animate({ 'width': imgWidth + 10 ,'height': imgHeight + 10 });
+  //set the new width and hight
+  $("#catImg").attr("width",imgWidth + 10);
+  $("#catImg").attr("height",imgHeight + 10);
+  // append '<p>animate</p>' to 'clickList'
+  $('#clickList').append('<p>' + $addPic + 'ANIMATE!</p>');
 }
 
 // PRO MODE
@@ -83,20 +87,14 @@ function animateCat() {
 function resetCat() {
   // reset catImg
     $('#catImg').show();
-    console.log(document.getElementById('clickList').innerText.includes("animate"));
+    var $addPic = '<img class=\'emojiImg\' src= \'http://cdn.osxdaily.com/wp-content/uploads/2016/09/think-about-it-emoji-610x621.jpg\'> ';
     // append '<p>reset</p>' to 'clickList'
-    if (!document.getElementById('clickList').innerText.includes("reset")) {
-      $('#clickList').append('<p>reset</p>');
-    } else{
-      //clear all the appendings after reset
-      document.getElementById('clickList').innerHTML = "";
-      if (document.getElementById('clickList').innerText.includes("animate"))
-      {
-        $('#catImg').animate({left: '-50px'});
-      }
-      //$('#catImg').style.position = "static";
-    }
-
+    //cleanup all existing display
+     document.getElementById('clickList').innerHTML = "";
+     $("#catImg").removeAttr("style");
+     $("#catImg").removeAttr("width");
+     $("#catImg").removeAttr("height");
+      $('#clickList').append('<p>LET\'S RESET!' + $addPic + '</p>');
     }
 
 

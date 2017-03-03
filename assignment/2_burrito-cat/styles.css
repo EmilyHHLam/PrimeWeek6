@@ -1,5 +1,6 @@
 body {
   font-family: Verdana, Arial, Sans-Serif;
+  width: 600px;
 }
 .navDiv {
   height: 30px;
@@ -22,4 +23,13 @@ body {
 img {
   margin-left: auto;
   margin-right: auto;
+}
+
+.emojiImg {
+  width: 100px;
+  height: 100px;
+}
+.displayPos {
+  width: 50%;
+  margin: 0 auto;
 }

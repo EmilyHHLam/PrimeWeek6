@@ -20,10 +20,10 @@ function revealHide() {
     //Show and Hide Value dynamically
     if ($('.cardImg').is(':hidden') === true ){
       $('.cardImg').show();
-      $('#revealHide').text('HIDE');
+      //$('#revealHide').text('HIDE');
     }else {
       $('.cardImg').hide();
-      $('#revealHide').text('SHOW');
+      //$('#revealHide').text('SHOW');
     }
   });
 
@@ -33,11 +33,7 @@ function revealHide() {
 function singleClickFunc() {
     //TODO add your code here to get the desired functionality
   $('.fruitBoard div').click(function() {
-    if ($(this).children("img").is(':hidden') === true ){
-      $(this).children("img").show();
-    } else {
-      $(this).children("img").hide();
-    }
+    $(this).children("img").fadeToggle();
 
   });
 

@@ -74,9 +74,6 @@ function animateCat() {
   var imgHeight = document.getElementById('catImg').clientHeight;
   //add 10px for each width and height
   $('#catImg').animate({ 'width': imgWidth + 10 ,'height': imgHeight + 10 });
-  //set the new width and hight
-  $("#catImg").attr("width",imgWidth + 10);
-  $("#catImg").attr("height",imgHeight + 10);
   // append '<p>animate</p>' to 'clickList'
   $('#clickList').append('<p>' + $addPic + 'ANIMATE!</p>');
 }
@@ -92,8 +89,6 @@ function resetCat() {
     //cleanup all existing display
      document.getElementById('clickList').innerHTML = "";
      $("#catImg").removeAttr("style");
-     $("#catImg").removeAttr("width");
-     $("#catImg").removeAttr("height");
       $('#clickList').append('<p>LET\'S RESET!' + $addPic + '</p>');
     }
 
